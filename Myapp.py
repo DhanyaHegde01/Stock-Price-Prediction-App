@@ -16,6 +16,11 @@ Shown are the stock price data for many companies!
 """)
 st.write('---')
 
+image = Image.open('stockpic.jpg')
+
+st.image(image, use_column_width=True)
+
+
 #Sidebar
 st.sidebar.subheader('Query Parameters')
 start_date = st.sidebar.date_input("Start date", datetime.date(2019, 1, 1))
