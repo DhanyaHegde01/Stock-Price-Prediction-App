@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
-import cufflinks as cf
+
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -100,9 +100,9 @@ def price_plot(symbol):
 
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
 
-# Bollinger bands
+
 st.header('**Bollinger Bands**')
-qf=cf.QuantFig(tickerDf,title='First Quant Figure',legend='top',name='GS')
+qf=plt.QuantFig(tickerDf,title='First Quant Figure',legend='top',name='GS')
 qf.add_bollinger_bands()
 fig = qf.iplot(asFigure=True)
 st.plotly_chart(fig)
