@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
+import cufflinks as cf
 
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
@@ -55,6 +56,12 @@ st.header('**%s**'% string_name)
 string_summary=tickerData.info['longBusinessSummary']
 st.info(string_summary)
 
+string_website=tickerData.info['website']
+st.info(string_website)
+
+string_market_cap=tickerData.info['marketcap']
+st.info(string_market_cap)
+
 
 # Sidebar - Sector selection
 sorted_sector_unique = sorted( df['GICS Sector'].unique() )
@@ -92,5 +99,13 @@ def price_plot(symbol):
   return st.pyplot()
 
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
+
+# Bollinger bands
+st.header('**Bollinger Bands**')
+qf=cf.QuantFig(tickerDf,title='First Quant Figure',legend='top',name='GS')
+qf.add_bollinger_bands()
+fig = qf.iplot(asFigure=True)
+st.plotly_chart(fig)
+
 
 
