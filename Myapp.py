@@ -3,6 +3,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
+from PIL import Image
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.write("""
