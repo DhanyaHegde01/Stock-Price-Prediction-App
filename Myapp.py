@@ -101,11 +101,7 @@ def price_plot(symbol):
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
 
 
-st.header('**Bollinger Bands**')
-qf=plt.QuantFig(tickerDf,title='First Quant Figure',legend='top',name='GS')
-qf.add_bollinger_bands()
-fig = qf.iplot(asFigure=True)
-st.plotly_chart(fig)
+
 
 
 
