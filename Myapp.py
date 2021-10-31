@@ -4,8 +4,6 @@ import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
 
-
-
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.write("""
 ## Simple Stock Price App 
@@ -17,7 +15,6 @@ Shown are the stock price data for many companies!
 -**Built in Python using streamlit library**
 """)
 st.write('---')
-
 
 #Sidebar
 st.sidebar.subheader('Query Parameters')
@@ -43,7 +40,7 @@ tickerSymbol=st.sidebar.selectbox('Stock ticker',ticker_list)#Select ticker of y
 tickerData=yf.Ticker(tickerSymbol)
 
 #get the historical prices for this ticker
-
+tickerDf = tickerData.history(period='1d', start=start_date, end=end_date) #get the historical prices for this ticker
 #Open High Low Close Volume Dividends Stock Splits
 
 # Ticker Information
@@ -58,6 +55,10 @@ st.info(string_summary)
 
 string_website=tickerData.info['website']
 st.info(string_website)
+
+string_market_cap=tickerData.info['marketcap']
+st.info(string_market_cap)
+
 
 
 # Sidebar - Sector selection
@@ -97,8 +98,5 @@ def price_plot(symbol):
 
 num_company = st.sidebar.slider('Number of Companies', 1, 5)
 
-
-
-
-
-
+st.line_chart(tickerDf.Close)
+st.line_chart(tickerDf.Volume)
