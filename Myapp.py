@@ -56,10 +56,6 @@ st.info(string_summary)
 string_website=tickerData.info['website']
 st.info(string_website)
 
-string_market_cap=tickerData.info['marketcap']
-st.info(string_market_cap)
-
-
 
 # Sidebar - Sector selection
 sorted_sector_unique = sorted( df['GICS Sector'].unique() )
