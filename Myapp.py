@@ -54,7 +54,7 @@ st.header('**%s**'% string_name)
 
 string_summary=tickerData.info['longBusinessSummary']
 st.info(string_summary)
-st.write(tickerData.info)
+
 
 # Sidebar - Sector selection
 sorted_sector_unique = sorted( df['GICS Sector'].unique() )
