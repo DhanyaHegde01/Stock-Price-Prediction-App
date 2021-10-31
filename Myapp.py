@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import datetime
 import matplotlib.pyplot as plt
-from PIL import Image
+
 
 st.set_option('deprecation.showPyplotGlobalUse', False)
 st.write("""
@@ -16,10 +16,6 @@ Shown are the stock price data for many companies!
 -**Built in Python using streamlit library**
 """)
 st.write('---')
-
-image = Image.open('stockpic.jpg')
-
-st.image(image, use_column_width=True)
 
 
 #Sidebar
